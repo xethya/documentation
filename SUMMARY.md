@@ -13,4 +13,9 @@
 * [Array](utilities/array.md)
 * [Assert](utilities/assert.md)
 * [Collections](utilities/collections.md)
-
+* [Node](utilities/node.md)
+* [Numeric](utilities/numeric.md)
+* [Range](utilities/range.md)
+* [Stack](utilities/stack.md)
+* [String](utilities/string.md)
+* [Time](utilities/time.md)

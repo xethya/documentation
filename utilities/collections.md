@@ -29,7 +29,24 @@ const characterCollection = Collection.fromArray<Character>(characters, 'name');
 
 ## Getting elements
 
-The `get()` and `getAll()` functions are used to obtain elements from a collection. When looking for a single element, its unique identifier \(given by the value of the property set in `indexName`\) must be provided.
+The `get()` and `getAll()` functions are used to obtain elements from a collection. 
+
+When looking for a single element, its unique identifier (given by the value of the property set in `indexName`) must be provided.
+
+When retrieving all elements, `getAll()` will create a copy of the collection's elements.
+
+```typescript
+const alice = characterCollection.get('alice');
+const charactersArray = characterCollection.getAll();
+```
+
+At any time, you can count how many elements are in the collection:
+
+```typescript
+if (characterCollection.count > 0) {
+  // Collection is not empty!
+}
+```
 
 ## Adding elements
 
@@ -103,5 +120,17 @@ const getMembersByTeam = (team: string) => characterCollection.where(
 );
 ```
 
+## Listening to events
 
+The `Collection` object triggers events when adding and removing elements, exposing the following event listener registration mechanisms:
 
+```typescript
+characterCollection.onBeforeAdd((collection: Collection<Character>, ...items: Character[]) => { /* ... */ });
+characterCollection.onAdd((collection: Collection<Character>, ...items: Character[]) => { /* ... */ });
+characterCollection.onBeforeRemove((collection: Collection<Character>, ...items: Character[]) => { /* ... */ });
+characterCollection.onRemove((collection: Collection<Character>, ...items: Character[]) => { /* ... */ });
+characterCollection.onBeforeRemoveAll((collection: Collection<Character>) => { /* ... */ });
+characterCollection.onRemoveAll((collection: Collection<Character>) => { /* ... */ });
+```
+
+As you can see, all events (except for `*removeAll`) allow access to the items being manipulated at the time the event was triggered, as well as to the affected collection.

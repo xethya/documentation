@@ -5,6 +5,6 @@
 
 ## Components
 
-* [@xethya/dice](components/xethya-dice.md)
+* [Dice](components/xethya-dice.md)
 * [@xethya/utils](components/xethya-utils.md)
 

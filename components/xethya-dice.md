@@ -1,4 +1,4 @@
-# @xethya/dice
+# Dice
 
 [![npm version](https://badge.fury.io/js/%40xethya%2Fdice.svg)](https://badge.fury.io/js/%40xethya%2Fdice)
 
@@ -11,8 +11,16 @@ This package controls everything related to rolling dice. It provides a base cla
 
 ## Installation
 
+With `npm`:
+
 ```bash
 npm install @xethya/dice
+```
+
+With `yarn`:
+
+```bash
+yarn add @xethya/dice
 ```
 
 ## Usage
@@ -74,16 +82,16 @@ The component includes a series of predefined dice, which you can use instead of
 
 | Preset | Range |
 | :--- | :--- |
-| CoinFlip | 1 - 2 |
-| D4 | 1 - 4 |
-| D6 | 1 - 6 |
-| D8 | 1 - 8 |
-| D10 | 1 - 10 |
-| D12 | 1 - 12 |
-| D20 | 1 - 20 |
-| D100 | 1 - 100 |
+| `CoinFlip` | 1 - 2 |
+| `D4` | 1 - 4 |
+| `D6` | 1 - 6 |
+| `D8` | 1 - 8 |
+| `D10` | 1 - 10 |
+| `D12` | 1 - 12 |
+| `D20` | 1 - 20 |
+| `D100` | 1 - 100 |
 
-Any preset can be used importing the proper class from the package root or from the Presets namespace:
+Any preset can be used importing the proper class from the package root or from the `Presets` namespace:
 
 ```typescript
 import { D12 } from '@xethya/dice';
@@ -113,7 +121,7 @@ import { IPseudoRandomNumberGenerator } from '@xethya/random-core';
 
 class MyPRNG implements IPseudoRandomNumberGenerator {
   generateRandom(): number {
-    // Your magic here!
+    return Math.random();
   }
 }
 ```
@@ -127,7 +135,7 @@ import { DiceThrow } from '@xethya/dice';
 
 const diceThrow = new DiceThrow({
   diceCount: 6,   // How many dice to roll?
-  faces: 6,       // What type of dice are we rolling?
+  faces: 6,       // How many faces a die has?
 });
 
 // Unlike Die#roll(), instead of a single number, you'll get
@@ -144,7 +152,7 @@ You can also pass a `randomizer` property into the settings with an instance of 
 
 ### Calculating success with dice
 
-There's a special kind of dice throw called a _chance throw_ \(represented by the `ChanceThrow` class\). This throw uses a D100 and attaches how successful the roll was. A typical use case for this kind of throw is to determine, for example, if a stab or a punch produce critical damage to an opponent.
+There's a special kind of dice throw called a _chance throw_ \(represented by the `ChanceThrow` class\). This throw uses a D100 and reports on the success the roll was. A typical use case for this kind of throw is to determine, for example, if a stab or a punch produce critical damage to an opponent.
 
 ```typescript
 import { ChanceThrow, DiceThrowTypes } from '@xethya/dice';
@@ -167,9 +175,9 @@ The property `throwType` uses an enumerable called `DiceThrowType` . By default,
 
 | Range | Resulting throw type | Consequence example |
 | :--- | :--- | :--- |
-| **1 - 20** | DiceThrowType.FAILURE | A character tried to open a lock with a key, but acted clumsily and broke the key. |
-| **21 - 90** | DiceThrowType.SUCCESS | _A characted tried to shoot down a bird with and arrow, and succedeed._ |
-| **91 - 100** | DiceThrowType.CRITICAL\_SUCCESS | _A character tried to persuade an enemy to not sound the alarm upon being seen,  and not only achieved that, but turned the enemy into a friend._ |
+| **1 - 20** | `DiceThrowType.FAILURE` | _A character tried to open a lock with a key, but acted clumsily and broke the key._ |
+| **21 - 90** | `DiceThrowType.SUCCESS` | _A characte_r _tried to shoot down a bird with and arrow, and succeeded._ |
+| **91 - 100** | `DiceThrowType.CRITICAL_SUCCESS` | _A character tried to persuade an enemy to not sound the alarm upon being seen,  and not only achieved that, but turned the enemy into a friend._ |
 
 The value ranges can be customized by supplying a `chanceRanges` property in the configuration object that is passed to the constructor. You'll need to use the `Range` class provided in the `@xethya/utils` package to set the values:
 

@@ -27,6 +27,10 @@ const characters = [
 const characterCollection = Collection.fromArray<Character>(characters, 'name');
 ```
 
+## Getting elements
+
+The `get()` and `getAll()` functions are used to obtain elements from a collection. When looking for a single element, its unique identifier \(given by the value of the property set in `indexName`\) must be provided.
+
 ## Adding elements
 
 The `add()` method allows to add new elements to the collection. 
@@ -86,4 +90,18 @@ if (characterCollection.contains('Alice')) {
   // ...
 }
 ```
+
+## Looking for an element
+
+The `where()` function receives a `QueryFunction<T>` callback that allows to filter the collection and returns those items that match the criteria specified by the callback. Works as `Array#filter`.
+
+```typescript
+// A function that returns a list of characters
+// according to the team they belong to.
+const getMembersByTeam = (team: string) => characterCollection.where(
+  character => character.team === team
+);
+```
+
+
 

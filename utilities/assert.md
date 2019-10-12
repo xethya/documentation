@@ -16,7 +16,7 @@ assert(condition, 'message');
 
 ## Example
 
-Let's assume you're creating a custom version of the [`Die`](../components/xethya-dice.md) class, adding a `color` property,
+Let's assume you're creating a custom version of the [`Die`](../components/dice.md) class, adding a `color` property,
 and you want to make sure the provided color is a valid hexadecimal number.
 
 Use the `assert` function to test the parameter's value against a regular expression, and provide a readable error message when the condition isn't met.

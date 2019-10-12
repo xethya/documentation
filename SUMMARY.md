@@ -5,8 +5,8 @@
 
 ## Components
 
-* [Dice](components/xethya-dice.md)
-* [Utils](components/xethya-utils.md)
+* [Dice](components/dice.md)
+* [Utils](components/utils.md)
 
 ## Utilities
 

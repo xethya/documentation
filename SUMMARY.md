@@ -11,5 +11,6 @@
 ## Utilities
 
 * [Array](utilities/array.md)
+* [Assert](utilities/assert.md)
 * [Collections](utilities/collections.md)
 

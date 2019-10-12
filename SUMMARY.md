@@ -6,5 +6,10 @@
 ## Components
 
 * [Dice](components/xethya-dice.md)
-* [@xethya/utils](components/xethya-utils.md)
+* [Utils](components/xethya-utils.md)
+
+## Utilities
+
+* [Array](utilities/array.md)
+* [Collections](utilities/collections.md)
 

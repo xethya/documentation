@@ -128,8 +128,3 @@ const characters = [
 
 const characterNames = characters.map(byKey('name')); // ['Alice', 'Bob', ...]
 ```
-
-## Collections
-
-
-
